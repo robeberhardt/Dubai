@@ -116,11 +116,7 @@
         <rsl-url>textLayout_1.0.0.595.swz</rsl-url>
       </library-path-entry>
       <library-path-entry>
-        <swc-path>/Users/rob/AS3 Library/as3-signals/as3-signals-v0.7.swc</swc-path>
-        <linkage>merge</linkage>
-      </library-path-entry>
-      <library-path-entry>
-        <swc-path>/Users/rob/AS3 Library/greensock-bonus-all-v11/AS3/greensock.swc</swc-path>
+        <swc-path>../libs</swc-path>
         <linkage>merge</linkage>
       </library-path-entry>
     </LibraryPath>

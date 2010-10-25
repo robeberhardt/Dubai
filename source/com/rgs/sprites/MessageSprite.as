@@ -1,7 +1,7 @@
 package com.rgs.sprites
 {
 	import com.greensock.TweenMax;
-	import com.greensock.easing.Cubic;
+	import com.greensock.easing.*;
 	import com.greensock.text.SplitTextField;
 	import com.rgs.rings.Connector;
 	import com.rgs.utils.SoundManager;
@@ -35,8 +35,8 @@ package com.rgs.sprites
 		public var connectedTo					: Connector;
 		public var killMeNowSignal				: Signal;
 		
-		private static const FULL_SCALE			: Number = 4;
-		private static const ARRIVE_MULTIPLIER	: Number = .5;
+		private static const FULL_SCALE			: Number = 2;
+		private static const ARRIVE_MULTIPLIER	: Number = 1;
 		private static const DEPART_MULTIPLIER	: Number = 1;
 		
 		public function MessageSprite()
@@ -105,16 +105,28 @@ package com.rgs.sprites
 		public function arrive():void
 		{
 			
-			TweenMax.to(this, 3*ARRIVE_MULTIPLIER, { autoAlpha: 1 });
-			TweenMax.to(this, 3*ARRIVE_MULTIPLIER, { scale: 1.5, ease:Cubic.easeOut });
-			TweenMax.to(this, 4*ARRIVE_MULTIPLIER, { delay: 1, glowFilter:{ strength: 0, blurX: 0, blurY: 0} });
+			TweenMax.to(this, 5*ARRIVE_MULTIPLIER, {  autoAlpha: 1, ease:Cubic.easeIn });
+//			TweenMax.to(this, 3*ARRIVE_MULTIPLIER, {  scale: 1.5, ease:Quad.easeOut });
+			TweenMax.to(this, 8*ARRIVE_MULTIPLIER, { delay: 2, glowFilter:{ strength: 0, blurX: 0, blurY: 0} });
 			TweenMax.to(this, 2*ARRIVE_MULTIPLIER, { delay: 2, dropShadowFilter:{alpha: .9, strength: 15, blurX: 4, blurY:4} }); 
 			
-			SoundManager.getInstance().playSound(SoundManager.ARRIVAL_SOUNDS);
-			
-			addEventListener(MouseEvent.CLICK, killMeNow);
 			
 			
+//			TweenMax.to(this, 3*ARRIVE_MULTIPLIER, { autoAlpha: 1 });
+//			TweenMax.to(this, 3*ARRIVE_MULTIPLIER, { scale: 1.5, ease:Cubic.easeOut });
+//			TweenMax.to(this, 4*ARRIVE_MULTIPLIER, { delay: 1, glowFilter:{ strength: 0, blurX: 0, blurY: 0} });
+//			TweenMax.to(this, 2*ARRIVE_MULTIPLIER, { delay: 2, dropShadowFilter:{alpha: .9, strength: 15, blurX: 4, blurY:4} }); 
+//			
+//			SoundManager.getInstance().playSound(SoundManager.ARRIVAL_SOUNDS);
+//			
+//			addEventListener(MouseEvent.CLICK, killMeNow);
+			
+			
+		}
+		
+		public function blurAndTint():void
+		{
+			TweenMax.to(this, 4*ARRIVE_MULTIPLIER, { tint: 0x5f017a, glowFilter:{ strength: 5, blurX: 4, blurY: 4} });
 		}
 		
 		
